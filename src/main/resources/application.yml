@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://mssql:1433;databaseName=customerdb
+    username: dynasoft
+    password: 5822
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+        show_sql: true
+        format_sql: true
+
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: customer-group
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+logging:
+  level:
+    root: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  file:
+    name: logs/customer-api.log
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+
