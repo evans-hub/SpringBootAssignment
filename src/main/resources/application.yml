@@ -1,8 +1,6 @@
 spring:
   datasource:
-    url: jdbc:sqlserver://mssql:1433;databaseName=customerdb
-    username: dynasoft
-    password: 5822
+    url: jdbc:sqlserver://DYNASOFT\\SQLEXPRESS;databaseName=customerdb;integratedSecurity=true;
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
 
   jpa:
